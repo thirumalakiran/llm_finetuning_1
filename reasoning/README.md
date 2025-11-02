@@ -1,19 +1,31 @@
 # llm_finetuning_1
 Sample finetuning using runpod
+
 pip install transformers==4.44.0 peft datasets accelerate bitsandbytes sentencepiece
+
 pip install huggingface_hub
+
 huggingface-cli login
 
+
 mkdir data
+
 vim sample.jsonl
 
-{"instruction": "Translate to French", "input": "Hello world", "output": "Bonjour le monde"}
-{"instruction": "What is 2+2?", "input": "", "output": "4"}
-{"instruction": "Write a haiku about AI", "input": "", "output": "Machines softly dream\nNumbers hum beneath the code\nWisdom wakes in light"}
-{"instruction": "Translate to French", "input": "Hello world", "output": "Bonjour le monde"}
-{"instruction": "Summarize", "input": "The sky is blue and full of clouds.", "output": "The sky is cloudy and blue."}
+```{"instruction": "Translate to French", "input": "Hello world", "output": "Bonjour le monde"}
 
-output before training reasoning
+{"instruction": "What is 2+2?", "input": "", "output": "4"}
+
+{"instruction": "Write a haiku about AI", "input": "", "output": "Machines softly dream\nNumbers hum beneath the code\nWisdom wakes in light"}
+
+{"instruction": "Translate to French", "input": "Hello world", "output": "Bonjour le monde"}
+
+{"instruction": "Summarize", "input": "The sky is blue and full of clouds.", "output": "The sky is cloudy and blue."}
+```
+
+
+output before training reasoning:
+```
 Phi-2 Baseline Reasoning Tests
 Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 
@@ -56,14 +68,16 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 - In this case, the train traveled 60 km in 1.5 hours.
 - To find the average speed, we divide 60 by 1.5.
 ### Solution:
-```python
+python
 distance_traveled = 60
 time_taken = 1.5
 average_speed = distance_traveled / time_taken
 print(average_speed)
-
+```
 
 Output after training reasoning:
+
+```
 Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 🧠 Model Output:
 23 * 47 = (2 * 3) * (4 * 7) = (2 * 4) * (3 * 7) = 8 * 21 = 168
@@ -81,4 +95,5 @@ Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 The ozone layer
 Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
 🧠 Model Output:
-The car's average speed is 60 km/h
+The car's average speed is 60 km/h'
+```
